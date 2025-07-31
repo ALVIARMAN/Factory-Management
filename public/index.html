@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manufacturing System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h2>Manufacturing System Dashboard</h2>
+      <p class="tagline">Efficiently manage products, machines, employees, and work orders</p>
+      <div class="header-user">
+        <img src="aa.png" alt="User" class="user-avatar" />
+        <span class="settings-dots">&#8942;</span>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="nav-container">
+      <ul class="navbar">
+        <li><a href="#machines">Machines</a></li>
+        <li><a href="#employees">Employees</a></li>
+        <li><a href="#costs">Costs</a></li>
+        <li><a href="#sell">Sales</a></li>
+        <li><a href="#profits">Profits</a></li>
+        
+      </ul>
+      <input type="text" id="global-search" class="search-bar" placeholder="Search..." />
+    </div>
+  </nav>
+
+  <main>
+    <div class="section-card">
+      <section id="products">
+        <h1>Products</h1>
+        <table id="product-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody id="product-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="machines">
+        <h1>Machines</h1>
+        <table id="machine-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Model</th>
+              <th>Status</th>
+              <th>Last Maintenance</th>
+            </tr>
+          </thead>
+          <tbody id="machine-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="employees">
+        <h1>Employees</h1>
+        <table id="employee-table">
+          <thead>
+            <tr>
+              <th>Emp ID</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Shift</th>
+            </tr>
+          </thead>
+          <tbody id="employee-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="workorders">
+        <h1>Work Orders</h1>
+        <table id="workorder-table">
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Product ID</th>
+              <th>Machine ID</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="workorder-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="parts">
+        <h1>Parts</h1>
+        <table id="parts-table">
+          <thead>
+            <tr>
+              <th>Part ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Stock Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="parts-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="costs">
+        <h1>Costs</h1>
+        <table id="costs-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="costs-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="machinelogs">
+        <h1>Machine Usage Logs</h1>
+        <table id="machinelogs-table">
+          <thead>
+            <tr>
+              <th>Machine ID</th>
+              <th>Employee ID</th>
+              <th>Work Order ID</th>
+              <th>Usage Start</th>
+              <th>Usage End</th>
+            </tr>
+          </thead>
+          <tbody id="machinelogs-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="qcreports">
+        <h1>Quality Control Reports</h1>
+        <table id="qcreports-table">
+          <thead>
+            <tr>
+              <th>Work Order ID</th>
+              <th>Inspector ID</th>
+              <th>Date</th>
+              <th>Passed</th>
+              <th>Defects Found</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="qcreports-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="downtimelogs">
+        <h1>Downtime Logs</h1>
+        <table id="downtimelogs-table">
+          <thead>
+            <tr>
+              <th>Machine ID</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody id="downtimelogs-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="sell">
+        <h1>Sales</h1>
+        <table id="sell-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Part ID</th>
+              <th>Quantity</th>
+              <th>Sell Price</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="sell-list"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="section-card">
+      <section id="profits">
+        <h1>Profits</h1>
+        <table id="profits-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Part ID</th>
+              <th>Quantity</th>
+              <th>Sell Price</th>
+              <th>Cost/Unit</th>
+              <th>Total Revenue</th>
+              <th>Total Cost</th>
+              <th>Profit</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="profits-list"></tbody>
+        </table>
+        <div id="profit-summary" class="profit-summary"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 ALVI ARMAN. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
