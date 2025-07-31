@@ -38,6 +38,18 @@ fetch('/FactoryManage/api/machines.php')
     });
   });
 
+// Fetch and display Machine Usage Logs
+fetch('/FactoryManage/api/machinelogs.php')
+  .then(res => res.json())
+  .then(logs => {
+    const tbody = document.getElementById('machinelogs-list');
+    logs.forEach(l => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${l.machine_id}</td><td>${l.emp_id}</td><td>${l.work_order_id}</td><td>${l.usage_start || ''}</td><td>${l.usage_end || ''}</td>`;
+      tbody.appendChild(tr);
+    });
+  });  
+
 // Fetch and display Employees
 fetch('/FactoryManage/api/employees.php')
   .then(res => res.json())
@@ -86,17 +98,7 @@ fetch('/FactoryManage/api/costs.php')
     });
   });
 
-// Fetch and display Machine Usage Logs
-fetch('/FactoryManage/api/machinelogs.php')
-  .then(res => res.json())
-  .then(logs => {
-    const tbody = document.getElementById('machinelogs-list');
-    logs.forEach(l => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${l.machine_id}</td><td>${l.emp_id}</td><td>${l.work_order_id}</td><td>${l.usage_start || ''}</td><td>${l.usage_end || ''}</td>`;
-      tbody.appendChild(tr);
-    });
-  });
+
 
 // Fetch and display QC Reports
 fetch('/FactoryManage/api/qcreports.php')
